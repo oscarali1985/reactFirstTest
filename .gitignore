@@ -16,7 +16,7 @@ php_errorlog
 !webpack.development.js
 
 # track readme.md in the root (i.e. do NOT ignore it)
-!README.md
+#!README.md
 
 # ignore OS generated files
 ehthumbs.db
