@@ -4,18 +4,15 @@ import React from "react";
 import rigoImage from "../../img/rigo-baby.jpg";
 
 //create your first component
-import { NewHome } from "./NewHome.js";
-
-export function Home(props) {
-	return (
-		<div className="row">
-			<NewHome />
+export class NewHome extends React.Component {
+	render() {
+		return (
 			<div className="text-center mt-5 col">
 				<h1>Hello Rigo!</h1>
 				<p>
 					<img src={rigoImage} />
 				</p>
-				<a href="#" className="btn btn-primary">
+				<a href="#" className="btn btn-danger">
 					If you see this green button... bootstrap is working
 				</a>
 				<p>
@@ -24,6 +21,6 @@ export function Home(props) {
 					with love!
 				</p>
 			</div>
-		</div>
-	);
+		);
+	}
 }
