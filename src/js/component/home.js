@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 //include images into your bundle
 import rigoImage from "../../img/rigo-baby.jpg";
@@ -6,47 +6,75 @@ import rigoImage from "../../img/rigo-baby.jpg";
 //create your first component
 import { NewHome } from "./NewHome.js";
 import { Card } from "./Card";
-import { map } from "jquery";
 
 export function Home(props) {
-	let people = [
-		{
-			name: "Oscar Marino",
-			color: "blue"
-		},
-		{
-			name: "Albany",
-			color: "brown"
-		},
-		{
-			name: "Francisco",
-			color: "orange"
-		},
-		{
-			name: "Yesman",
-			color: "lightblue"
-		}
-	];
+	//const [nombreDelEstado, setNombreDelEstado] = useState(valorinicialdelestado)
+	const [people, setPeople] = useState([]);
+	const [name, setName] = useState("");
+	const [color, setColor] = useState("");
 
 	// if () -> Operadores Terniarios
 	// for () -> map,, filter, Find
 
 	return (
 		<div className="row">
-			<div className="text-center mt-5 col">
-				<h1>{` Rigo!`}</h1>
-				<p>
-					<img src={rigoImage} />
-				</p>
-				<a href="#" className="btn btn-primary">
-					If you see this green button... bootstrap is working
-				</a>
-				<p>
-					Made by{" "}
-					<a href="http://www.4geeksacademy.com">4Geeks Academy</a>,
-					with love!
-				</p>
-			</div>
+			<label htmlFor="name">{"Nombre:"} </label>
+			<input
+				type="text"
+				name="name"
+				onChange={event => {
+					console.log();
+					setName(event.target.value);
+				}}
+				value={name}
+			/>
+
+			<label htmlFor="color">{"Color:"} </label>
+			<input
+				type="text"
+				name="color"
+				onChange={event => {
+					console.log();
+					setColor(event.target.value);
+				}}
+				value={color}
+			/>
+
+			<button
+				className="btn btn-primary"
+				onClick={e => {
+					if (name != "" && color != "") {
+						let newPerson = {
+							name: name,
+							color: color
+						};
+						//Para asignar una sola sola tarjeta
+						// let person = {
+						// 	name: name,
+						// 	color: color
+						// };
+						//setPeople([person]);
+
+						//Generar una lista para agregar mas cartas
+						// let newPeople = [];
+						// for (let person of people) {
+						// 	newPeople.push(person);
+						// }
+						// newPeople.push(newPerson);
+						// setPeople(newPeople);
+
+						//Metodo mas rapido
+						//spread operator ...
+
+						setPeople([...people, newPerson]);
+						setName("");
+						setColor("");
+					} else {
+						alert(`Hola, no se pueden crear cartas sin datos`);
+					}
+				}}>
+				{"Agregar"}
+			</button>
 
 			{people.map((person, index) => {
 				// Renderizar persona para mostrar nombre y color
@@ -60,7 +88,7 @@ export function Home(props) {
 				);
 			})}
 
-			<Card name="Oscar" color="red" imagen={rigoImage} />
+			{/* <Card name="Oscar" color="red" imagen={rigoImage} /> */}
 			{/* 
 			props ={
 				name = "Oscar"
