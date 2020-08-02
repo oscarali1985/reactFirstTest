@@ -1,21 +1,24 @@
 import React from "react";
-import PropsTypes from "prop-types";
+import PropTypes from "prop-types";
 
 export const Card = ({ name, color = "lightgray", imagen }) => {
 	return (
 		<div
-			className={"card mx-auto my-4"}
+			className={"c" + "a" + "r" + "d" + " mx-auto my-4"}
 			style={{
 				width: "18rem",
 				backgroundColor: color,
 				color: "white"
 			}}>
-			<img src={imagen} class="card-img-top" alt="imagen de persona" />
+			<img
+				src={imagen}
+				className="card-img-top"
+				alt="imagen de la persona"
+			/>
 			<div className="card-body">
 				<h5 className="card-title">{name}</h5>
 				<p className="card-text">
-					{`Some quick example text to build on the card title`}+
-					{`and make up the bulk of the card's content.`}
+					{`Soy el profesor de esta cohorte.`}
 				</p>
 				<a href="#" className="btn btn-primary">
 					Go somewhere
@@ -25,7 +28,8 @@ export const Card = ({ name, color = "lightgray", imagen }) => {
 	);
 };
 
-Card.prototype = {
-	name: PropsTypes.string.isRequired,
-	color: PropsTypes.string
+Card.propTypes = {
+	name: PropTypes.string.isRequired,
+	color: PropTypes.string,
+	imagen: PropTypes.string
 };

@@ -4,11 +4,10 @@ import React from "react";
 import rigoImage from "../../img/rigo-baby.jpg";
 
 //create your first component
-import { NewHome } from "./NewHome.js";
 import { Card } from "./Card";
-import { map } from "jquery";
+//import { map } from "jquery";
 
-export function Home(props) {
+export function Home() {
 	let people = [
 		{
 			name: "Oscar Marino",
@@ -64,14 +63,6 @@ export function Home(props) {
 					/>
 				);
 			})}
-
-			<Card name="Oscar" color="red" imagen={rigoImage} />
-			{/* 
-			props ={
-				name = "Oscar"
-				color = "blue"
-			}
-			 */}
 		</div>
 	);
 }
